@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ</title>
+    <link rel="stylesheet" href="mcq.css">
+</head>
+
+<body>
+    <div class="quiz">
+
+        <h5>Which is the wild animal in following option</h5>
+        <label><input type="radio" name="animal" id="a" value="cow">cow</label>
+        <label><input type="radio" name="animal" id="b" value="cat">cat</label>
+        <label><input type="radio" name="animal" id="c" value="fox">fox</label>
+        <label><input type="radio" name="animal" id="d" value="lion">lion</label>
+        <br>
+
+        <h5>Which is the capital of india</h5>
+        <label><input type="radio" name="capital" value="delhi">delhi</label>
+        <label><input type="radio" name="capital" value="lahor">lahor</label>
+        <label><input type="radio" name="capital" value="Tokyo">Tokyo</label>
+        <label><input type="radio" name="capital" value="kabul">kabul</label>
+        <br>
+
+        <h5>Which is sky color</h5>
+        <label><input type="radio" name="color" value="red">red</label>
+        <label><input type="radio" name="color" value="blue">blue</label>
+        <label><input type="radio" name="color" value="skyblue">skyblue</label>
+        <label><input type="radio" name="color" value="black">black</label>
+        <br>
+
+        <h5>how do you insert javascript into an html page?</h5>
+        <label><input type="radio" name="html" value="tag">using js tag</label>
+        <label><input type="radio" name="html" value="javascript">using javascript tag</label>
+        <label><input type="radio" name="html" value="script">using script tag</label>
+        <label><input type="radio" name="html" value="scripting">using scripting tag</label>
+
+        <h5>what dose NaN stand for in javascript</h5>
+        <label><input type="radio" name="NaN" value="not">Not a number</label>
+        <label><input type="radio" name="NaN" value="new">New and Null</label>
+        <label><input type="radio" name="NaN" value="no">No action now</label>
+        <label><input type="radio" name="NaN" value="application">No application now</label>
+
+        <p id="total"></p>
+        <p id="res"></p>
+        <p id="res2"></p>
+
+
+        <button onclick="add()">submit</button>
+
+    </div>
+</body>
+
+<script>
+
+
+    correct = 0
+    worng = 0
+
+    function add() {
+
+
+        let result1 = document.getElementById("res")
+        let result2 = document.getElementById("res2")
+
+        let xyz = document.querySelector('input[name="animal"]:checked')
+
+        if (!xyz) {
+            alert("please choose the option")
+        }
+        if (xyz.value === "lion") {
+            correct += 10
+        }
+        else {
+            worng -= 10
+        }
+
+        let select2 = document.querySelector("input[name=capital]:checked")
+
+        if (select2.value === "delhi") {
+            correct += 10
+        }
+        else {
+            worng -= 10
+        }
+
+        let sect3 = document.querySelector("input[name=color]:checked")
+
+        if (sect3.value === "skyblue") {
+            correct += 10
+        }
+        else {
+            worng -= 10
+        }
+
+        let sect4 = document.querySelector("input[name=html]:checked")
+
+        if (sect4.value === "script") {
+            correct += 10
+        }
+        else {
+            worng -= 10
+        }
+
+
+        let sect5 = document.querySelector("input[name=NaN]:checked")
+
+        if (sect5.value === "not") {
+            correct += 10
+
+        }
+        else {
+            worng -= 10
+        }
+
+
+        document.querySelector("button").disabled = true;
+
+
+        document.getElementById("total").innerHTML = "total marks/50"
+        result1.innerHTML = " total correct " + correct
+
+        result2.innerHTML = "total wrong " + worng
+    }
+
+</script>
+
+</html>

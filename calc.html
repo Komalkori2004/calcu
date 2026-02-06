@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculater</title>
+    <link rel="stylesheet" href="clacu.css">
+</head>
+<body>
+    <div class="box">
+    <h2>Simple Calculater</h2>
+    <!-- value -->
+    <input type="text"  id="nb1" placeholder="Enter the number">
+    <input type="text"  id="nb2" placeholder="Enter the number">
+
+    <br><br>
+
+    <!-- button -->
+     <button onclick="add()">Add(+)</button>
+     <button onclick="sub()">subtract(-)</button>
+     <button onclick="mul()">Multiply(*)</button>
+     <button onclick="div()">Divide(/)</button>
+
+     <div class="result">
+     <h3>Result: <span id="res">0</span></h3>
+     </div>
+     </div>
+
+
+</body>
+<script>
+    function add(){
+        let a= Number(document.getElementById("nb1").value)
+        let b= Number(document.getElementById("nb2").value)
+        document.getElementById("res").innerText=a+b
+    }
+        function sub(){
+        let a= Number(document.getElementById("nb1").value)
+        let b= Number(document.getElementById("nb2").value)
+        document.getElementById("res").innerText=a-b
+    }
+    function mul(){
+        let a= Number(document.getElementById("nb1").value)
+        let b= Number(document.getElementById("nb2").value)
+        document.getElementById("res").innerText=a*b
+    }
+    function div(){
+        let a= Number(document.getElementById("nb1").value)
+        let b= Number(document.getElementById("nb2").value)
+        document.getElementById("res").innerText=a/b
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="todo.css">
+    
+</head>
+
+<body>
+    <!-- 9 to-do list -->
+
+    <div class="container">
+        <div class="todo-list">
+
+            <h2>To-Do list</h2>
+            <div class="row">
+
+                <input type="text" id="input" placeholder="Enter your task">
+                <button type="submit" onclick="add()">Add task</button>
+            </div>
+
+
+            <ul id="mylist"></ul>
+        </div>
+    </div>
+
+
+</body>
+<script>
+
+    function add() {
+
+        let input = document.getElementById("input")
+        let task = input.value.trim()
+
+        if (task == "") {
+            alert("Enter  your task first")
+            return;
+        }
+
+
+        let li = document.createElement("li")
+        li.style.listStyle = "none"
+
+        // checked 
+
+        let checkbox = document.createElement("input")
+        checkbox.type = "checkbox"
+        checkbox.className = "todo-checkbox"
+
+        checkbox.onchange = function () {
+            if (checkbox.checked) {
+                li.style.textDecoration = "line-through"
+            }
+            else {
+                li.style.textDecoration = "none"
+
+            }
+        }
+
+        let span = document.createElement("span")
+        span.textContent = task
+        // li.textContent = task
+
+        // delet btn
+
+        let delbtn = document.createElement("button")
+        delbtn.textContent = "Delete"
+        delbtn.className = "delete-btn"
+        // delbtn.style.marginLeft = "10px"
+
+        delbtn.onclick = function () {
+            li.remove()
+        }
+
+        li.appendChild(checkbox)
+        li.appendChild(span)
+        li.appendChild(delbtn)
+
+        document.getElementById("mylist").appendChild(li)
+
+        input.value = ""
+    }
+</script>
+
+</html>

@@ -1,0 +1,102 @@
+ * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #375288, #420c50);
+            padding: 10px;
+        }
+
+        .todo-list {
+            max-width: 550px;
+            padding: 40px 30px 70px;
+            margin: 100px auto 70px;
+            border-radius: 10px;
+            background-color: white;
+
+        }
+
+        .todo-list h2 {
+            color: rgb(23, 23, 71);
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: whitesmoke;
+            border-radius: 30px;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            font-size: 25px;
+
+        }
+
+        input {
+            outline: none;
+            border: none;
+            background: transparent;
+            padding: 10px;
+        }
+
+
+        button {
+            outline: none;
+            border: none;
+            padding: 16px 50px;
+            background: rgb(234, 96, 46);
+            color: white;
+            font-size: 16px;
+            border-radius: 40px;
+        }
+
+        /* .todo-checkbox{
+            width:20px ;
+            height:20px ;
+            cursor: pointer; */
+        /* } */
+        .todo-checkbox {
+            width: 20px;
+            height: 20px;
+            appearance: none;
+            border: 2px solid #555;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .todo-checkbox:checked {
+            background: #4CAF50;
+            border-color: #4CAF50;
+        }
+
+        .todo-checkbox:checked::after {
+            content: "✔";
+            position: absolute;
+            color: white;
+            font-size: 16px;
+            left: 2px;
+            top: -1px;
+        }
+
+        .delete-btn {
+            cursor: pointer;
+            margin-left: 15px;
+            padding: 6px 12px;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .delete-btn:hover {
+            background: darkred;
+        }

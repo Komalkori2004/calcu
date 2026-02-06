@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fillter</title>
+    <link rel="stylesheet" href="filter.css">
+
+     
+</head>
+
+<body>
+    <div class="container">
+        <h2>Fillter Products</h2>
+        <div class="products">
+            <label>category:</label>
+            <select name="" id="category">
+                <option value="all">All</option>
+                <option value="electronic">Electronic</option>
+                <option value="fashion">Fashion</option>
+                <option value="home">Home</option>
+            </select><br>
+
+            <label>price:</label>
+            <select id="price">
+                <option value="all">All</option>
+                <option value="low">1000-5000</option>
+                <option value="mid">7000-12000</option>
+                <option value="high">15000-70000</option>
+            </select><br>
+
+            <label>rating:</label>
+            <select name="" id="rating">
+                <option value="all">All</option>
+                <option value="4">4 ★ & above</option>
+                <option value="3">3 ★ & above</option>
+            </select>
+
+        </div>
+    </div>
+
+    <h3>Products</h3><br>
+    <div id="products"></div>
+
+</body>
+
+<script>
+
+    let product = [
+        { name: "Laptop", category: "electronic", price: 50000, rating: 4.5 },
+        { name: "shoes", category: "fashion", price: 2500, rating: 3 },
+        { name: "Shirt", category: "fashion", price: 1000, rating: 4.0 },
+        { name: "Mobile", category: "electronic", price: 15000, rating: 4.2 },
+        { name: "Shoes", category: "fashion", price: 3000, rating: 3.8 },
+        { name: "Mixer", category: "home", price: 2500, rating: 4.1 }
+
+    ]
+
+    let category = document.getElementById("category")
+    let price = document.getElementById("price")
+    let rating = document.getElementById("rating")
+    let productbox = document.getElementById("products")
+
+
+    function showitem(list) {
+        productbox.innerHTML = "";
+        list.forEach(p => {
+            productbox.innerHTML += `
+            <div class="item">
+                <strong>${p.name}</strong><br>
+                category ${p.category}<br>
+                price ${p.price}<br>
+                rating ${p.rating}★
+                </div>
+                `;
+        });
+    }
+
+    // filter function
+
+    function filterfunction() {
+        let filterd = product.filter(p => {
+
+            if (category.value !== "all" && p.category !== category.value) { return false }
+            if (price.value === "low" && (p.price < 1000 || p.price > 5000)) return false;
+            if (price.value === "mid" && (p.price < 7000 || p.price > 12000)) return false;
+            if (price.value === "high" && (p.price < 15000 || p.price > 70000)) return false
+            if (rating.value !== "all" && p.rating < (Number(rating.value))) { return false }
+
+            return true
+        })
+
+        showitem(filterd)
+    }
+
+    category.addEventListener("change", filterfunction)
+    price.addEventListener("change", filterfunction)
+    rating.addEventListener("change", filterfunction)
+
+    showitem(product)
+
+
+
+</script>
+
+</html>

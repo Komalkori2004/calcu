@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing test</title>
+    <link rel="stylesheet" href="typing.css">
+</head>
+
+<body>
+    <div class="container">
+        <h3>Text your typing</h3>
+        <p id="text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea, voluptatem officia. Dolorem impedit
+            incidunt dolorum voluptatum? Quasi aperiam rem qui,
+            optio assumenda sed fugiat natus atque, suscipit aspernatur placeat esse? </p>
+        <textarea id="input" disabled></textarea><br>
+        <button onclick="start()">start</button>
+        <button onclick="stop()">stop</button>
+        <p>time:<span id="timer">0</span>sec</p>
+        <p id="result"></p>
+
+
+    </div>
+    </div>
+
+</body>
+<script>
+
+    let sec = 0
+    let timer;
+    function start() {
+        let input = document.getElementById("input")
+        input.disabled = false;
+        input.focus();
+
+        sec = 0
+        document.getElementById("time").innerHTML = time
+
+        clearInterval(timer);
+
+        timer = setInterval(function () {
+            sec++
+            document.getElementById("time").innerHTML = sec
+
+        }, 1000)
+
+        document.getElementById("result").innerHTML = "Start your test"
+
+    }
+    
+    function stop() {
+
+        clearInterval(timer)
+        document.getElementById("input").disabled = true
+
+        let given = document.getElementById("text").textContent
+        let typed = document.getElementById("input").value
+
+        let correct = 0
+
+        for (i = 0; i < typed.length; i++) {
+            if (typed[i] === given[i]) {
+                correct++
+            }
+        }
+
+        let acc = (correct / given.length) * 100
+        let word = typed.length / 5
+
+        let min = sec / 60
+
+        let wpm = math.round(word / min)
+
+        document.getElementById("result").textContent = "Accuracy:" + accuracy + "%|time" + sec + "second|wpm" + wpm
+
+
+
+    }
+
+
+
+</script>
+<script>
+
+
+
+
+
+
+
+</script>
+
+</html>
